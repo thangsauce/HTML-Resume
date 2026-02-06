@@ -1,0 +1,310 @@
+:root {
+    --bg: #07140d;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-strong: rgba(255, 255, 255, 0.1);
+
+    --text: #e6f4ec;
+    --muted: rgba(230, 244, 236, 0.7);
+
+    --accent: #4ade80;
+    --accent-2: #22c55e;           
+
+    --border: rgba(255, 255, 255, 0.15);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --radius: 16px;
+
+    --maxw: 1100px;
+    --pad: 16px;
+    --gap: 14px;
+
+    --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    line-height: 1.55;
+    color: var(--text);
+    background:
+        radial-gradient(
+        1200px 600px at 15% 10%,
+        rgba(74, 222, 128, 0.18),
+        transparent 60%
+        ),
+        radial-gradient(
+        900px 500px at 85% 20%,
+        rgba(34, 197, 94, 0.16),
+        transparent 60%
+        ),
+        linear-gradient(180deg, #050f0a, var(--bg));
+    min-height: 100vh;
+}
+
+header,
+main,
+footer {
+    width: min(var(--maxw), 100%);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+}
+
+header {
+    margin-top: 22px;
+    padding: 22px var(--pad);
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.05));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    display: grid;
+    gap: 12px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+    letter-spacing: 0.2px;
+}
+
+.contact {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Icon link styles */
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    background-color: transparent;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.icon-link:hover,
+.icon-link:focus-visible {
+    background-color: rgba(74, 222, 128, 0.15);
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 0 1px rgba(74, 222, 128, 0.6),
+        0 0 14px rgba(34, 197, 94, 0.45),
+        0 6px 18px rgba(0, 0, 0, 0.45);
+
+    outline: none;
+    }
+
+.icon-link:hover .icon,
+.icon-link:focus-visible .icon {
+    filter: brightness(1.2) drop-shadow(0 0 6px rgba(74, 222, 128, 0.8));
+}
+
+/*LinkedIn blue glow*/
+.icon-link:hover .linkedin-icon,
+.icon-link:focus-visible .linkedin-icon {
+    filter: brightness(1.1)
+        drop-shadow(0 0 6px rgba(10, 102, 194, 0.9));
+}
+
+.icon-link:has(.linkedin-icon):hover {
+    box-shadow:
+        0 0 0 1px rgba(10, 102, 194, 0.7),
+        0 0 16px rgba(10, 102, 194, 0.6),
+        0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* GitHub white glow */
+.icon-link:hover .github-icon,
+.icon-link:focus-visible .github-icon {
+    filter: brightness(1.4)
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+}
+
+.icon-link:has(.github-icon):hover {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.7),
+        0 0 16px rgba(255, 255, 255, 0.55),
+        0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.contact .icon {
+    height: 24px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.github-icon {
+    filter: brightness(0) invert(1);
+}
+
+main {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    display: grid;
+    gap: var(--gap);
+}
+
+section {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+section h2 {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: rgba(234, 240, 255, 0.92);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+section h2::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 4px rgba(98, 208, 255, 0.14);
+}
+
+article {
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+}
+
+article + article {
+    margin-top: 12px;
+}
+
+h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    color: rgba(234, 240, 255, 0.96);
+}
+
+p {
+    margin: 8px 0;
+    color: var(--muted);
+}
+
+ul {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+}
+
+li {
+    margin: 6px 0;
+}
+
+section a {
+    color: var(--accent);
+    text-decoration: none;
+}
+section a:hover,
+section a:focus-visible {
+    text-decoration: underline;
+    outline: none;
+}
+
+article p:first-of-type {
+    color: rgba(234, 240, 255, 0.86);
+}
+
+/*Desktop/Laptop (1920px)*/
+@media (min-width: 900px) {
+:root {
+    --pad: 22px;
+    --gap: 18px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.contact {
+    justify-content: flex-end;
+}
+
+main {
+    grid-template-columns: 1fr 1.25fr;
+    grid-template-areas:
+      "objective experience"
+      "education experience"
+      "projects  experience"
+      "skills    experience";
+    align-items: start;
+}
+
+    #objective {grid-area: objective;}
+    #education {grid-area: education;}
+    #experience {grid-area: experience;}
+    #projects {grid-area: projects;}
+    #skills {grid-area: skills;}
+
+#experience {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+@media (max-width: 420px) {
+    section {
+        padding: 14px;
+    }
+    .icon-link {
+        padding: 6px 8px;
+    }
+}
+
+@media (min-width: 1400px) {
+    :root { --maxw: 1200px; }
+    header h1 { font-size: 2.4rem; }
+    section { padding: 24px; }
+}
+
+footer {
+    padding-bottom: 30px;
+    color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    }
+
+}
